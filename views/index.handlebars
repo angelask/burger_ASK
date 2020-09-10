@@ -1,95 +1,55 @@
-<h1>Movie Plans</h1>
+<h1 class="text-center text-dark">Eat-Da-Burger!</h1>
+<section >
+    <div class="d-md-flex justify-content-between burger-list">
+        <div class="mb-3">
+            <div class="card bg-dark m-2 p-3 h-100 shadow">
+                <h2>These burgers have not been eaten</h2>
+                <ul class="list-group">
+                    {{#each burgers}}
+                    {{#unless devoured}}
+                    {{> burger-block devoured=true}}
+                    {{/unless}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="card bg-dark m-2 p-3 h-100 shadow">
+                <h2>These burgers have been devoured</h2>
+                <ul class="list-group">
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    {{> burger-block devoured=false}}
+                    {{/if}}
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="card bg-dark mx-2 mt-4 shadow">
+        <div class="card-body">
+            <h2 class="card-title">Create a Burger</h2>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="burg">Burger:</label>
+                    <input class="form-control" type="text" id="burg" name="name">
+                </div>
+                <div class="custom-control custom-radio">
+                    <label for="devoured">When do you want to eat your burger?</label><br>
+                    <input type="radio" name="devoured" value="1"> Eat it right away<br>
+                    <input type="radio" name="devoured" value="0" checked> I prefer to admire my food first
+                </div>
+                <button type="submit" class="btn btn-success mt-3 mx-2">Build Burger</button>
+            </form>
+        </div>
+    </div>
+</section>
 
-<ul>
-  {{#each moviePlans}}
-  <li>
-    <p>
-      {{this.id}}. {{this.moviePlans}}
 
-      <button data-moviePlansid="{{this.id}}" class="delplan">Delete moviePlans!</button>
-    </p>
-  </li>
-  {{/each}}
-</ul>
 
-<h2>Create a Plan</h2>
-<form id="createplan" class="button-size">
-  <textarea type="text" name="plan"></textarea>
-  <button type="submit">Save Movie Plan!</button>
-</form>
 
-<h2>Update a Plan</h2>
-<form id="updateplan" class="button-size">
-  <select name="id">
-		{{#each moviePlans}}
-			<option value="{{this.id}}">{{this.moviePlans}}</option>
-		{{/each}}
-	</select>
-  <textarea type="text" name="plan" placeholder="plan"></textarea>
-  <button type="submit">Update Movie Plan!</button>
-</form>
 
-<script type="text/javascript">
-  $(".delmoviePlans").on("click", function(event) {
-    // Get the ID from the button.
-    // This is shorthand for $(this).attr("data-planid")
-    var id = $(this).data("moviePlansid");
 
-    // Send the DELETE request.
-    $.ajax("/api/moviePlans/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
 
-  $("#createplan").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    // [name=plan] will find an element with a "name" attribute equal to the string "plan"
-    var newMoviePlans = {
-      moviePlans: $("#createplan [name=moviePlans]").val().trim()
-    };
-
-    // Send the POST request.
-    $.ajax("/api/moviePlans", {
-      type: "POST",
-      data: newMoviePlans
-    }).then(
-      function() {
-        console.log("created new movie plan");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $("#updatemoviePlans").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    // Get the ID by finding an element with a "name" attribute equal to the string "id"
-    var id = $("[name=id]").val().trim();
-
-    var updatedmoviePlans = {
-      moviePlans: $("#updateplan [name=plan]").val().trim()
-    };
-
-    // Send the PUT request.
-    $.ajax("/api/moviePlans/" + id, {
-      type: "PUT",
-      data: updatedPlan
-    }).then(
-      function() {
-        console.log("updated id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-</script>
