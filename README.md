@@ -2,20 +2,52 @@
 home work 13 hamburger options
 https://pure-lake-17699.herokuapp.com/ 
 
-Project Name :
-# Unit 13 Node Express Handlebars; Eat-Da-Burger
-Description :
-In this assignment, we created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!), following the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML. App was connected vis Heroku database
-License :
-BSD-2-Clause BSD-3-Clause
-Installation :
-Npm I was used to install all the packages to complete project
-Tests :
-Coder performed required tests prior to release of application
-Usage :
-User instructions are to follow the prompts to add new new burgers, and is given clear options on what to do.
-Contribution :
-User should know they can add and delete burgers as desired
+# Table of Contents
+
+  ## Description
+  * [Description](#Description)
+
+  ## Questions
+  * [Questions](#Questions)
+
+  ## Installation
+  * [Installation](#Installation)
+
+  ## License
+  * [License](#License)
+
+  ## Usage
+  * [Usage](#Usage)
+
+  ## Contribution
+  * [Contribution](#Contribution)
+
+  ## Tests
+  * [Tests](#Tests)
+
+
+  ## Title :
+  Angela Strayhorn Consulting
+  
+  ## Username :
+   Angelask
+  ## Email :
+  ### angelats@outlook.com
+  ## Project Name :
+  ###  # Unit 13 Node Express Handlebars; Eat-Da-Burger
+  ## Description :
+  ###  In this assignment, we created a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!), following the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.  App was connected vis Heroku database
+  ## License :
+  ###  BSD-2-Clause BSD-3-Clause 
+  ## Installation :
+  ###  Npm I was used to install all the packages to complete project
+  ## Tests :
+  ###  Coder performed required tests prior to release of application
+  ## Usage :
+  ###  User instructions are to follow the prompts to add new new burgers, and is given clear options on what to do. 
+  ## Contribution :
+  ### User should know they can add and delete burgers as desired
+
 
 [Git Hub](https://github.com/angelask/burger_ASK)
 
